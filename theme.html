@@ -35,6 +35,7 @@
     <link rel="shortcut icon" href="{Favicon}" />
     <link rel="apple-touch-icon" href="{PortraitURL-128}"/>
     <link rel="alternate" type="application/rss+xml" href="{RSS}" />
+    <link type="text/css" rel="stylesheet" href="http://meyerweb.com/eric/tools/css/reset/reset.css" />
     <style type="text/css">
             body {
             background: {color:Background} url('{image:Background}') top left fixed repeat;
@@ -843,7 +844,43 @@
     <style type="text/css">{CustomCSS}</style>
 </head>
 <body>
-    <div id="theheader"></div>
+    <div id="theheader">
+        <div id="wrapper_header">
+            <div id="content_header">                 
+            </div>
+            <div id="ask_submit_header">            
+                <div><a href="http://www.shinjithekid.tumblr.com/ask"><img id="ask_button" class="ask_sub_button" src="http://media.tumblr.com/09640c0c4238ee6423304b8ceb20ce73/tumblr_inline_mqzc9isvMH1qmdj69.png" /></a>
+                </div>
+                <div><a href="http://www.shinjithekid.tumblr.com/submit"><img id="submit_button" class="ask_sub_button" src="http://media.tumblr.com/d3ebe0b62358bcc48e5127ef2791392b/tumblr_inline_mqztjzSblb1qmdj69.png" /></a>
+                </div>
+            </div>
+        </div>
+    </div> 
+<!-- Start SideNav -->
+    <div id="sidenav">
+        <!-- test <ul>
+            <li>I'm a future sidebar!</li>
+            <li>Lists are fun</li>
+            <li>Menu Links and stuff!</li>
+        </ul> -->
+        <script type="text/javascript">
+            $('li').on("click",function(){
+            $(window).scrollTop(0);
+            });
+        </script>
+        <ul class="page-scroll-nav">
+            <li id="go-down">DOWN</li>
+            <li id="go-top">UP</li>
+        </ul>
+        {block:HasPages}
+            <div id="pages">
+                        {block:Pages}<ul><a href="{URL}" class="page"><li>{Label}</li></a></ul>{/block:Pages}
+                        <div class="clear"></div>
+                    </div>
+                {/block:HasPages}
+
+    </div>
+<!-- End SideNav -->
     <div id="wrapper">
         <div id="title">  
             <a href="/">
@@ -1036,21 +1073,21 @@
         
         <div id="sidebar">
             <div id="top">
-                <div id="avatar"><a href="/"><img src="{PortraitURL-128}" /></a></div><div><a href="http://www.shinjithekid.tumblr.com/ask"><img id="askbutton" src="http://media.tumblr.com/070ed761b411cfc35d0c97e7c3adaeec/tumblr_inline_mqz6cvxtGg1qmdj69.png" /></a></div>
+                <div id="avatar"><a href="/"><img src="{PortraitURL-128}" /></a></div>
                 <div id="description">{Description}</div>
                 
                 <div id="pages" class="ask_and_submit">
-                    {block:AskEnabled}<a href="/ask" class="page">{AskLabel}</a>{/block:AskEnabled}
-                    {block:SubmissionsEnabled}<a href="/submit" class="page">{SubmitLabel}</a>{/block:SubmissionsEnabled}
+                <!-- {block:AskEnabled}<a id="ask_page_default" href="/ask" class="page">{AskLabel}</a>{/block:AskEnabled} 
+                    {block:SubmissionsEnabled}<a id="submit_page_default" href="/submit" class="page">{SubmitLabel}</a>{/block:SubmissionsEnabled} -->
                     <div class="clear"></div>
                 </div>
                 
-                {block:HasPages}
+             <!--   {block:HasPages}
                     <div id="pages">
                         {block:Pages}<a href="{URL}" class="page">{Label}</a>{/block:Pages}
                         <div class="clear"></div>
                     </div>
-                {/block:HasPages}
+                {/block:HasPages} -->
                 
                 <div id="search">
                     <form action="/search" method="get" id="search-form">
