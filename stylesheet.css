@@ -25,6 +25,10 @@
     display: block;
 }
 
+#wrapper #title a:active {
+    margin-top: 1px;
+}
+
 #wrapper #title a:hover {
     opacity: 0.9;
 }
@@ -62,14 +66,16 @@
     padding: 13px 0;
     width: 175px;
     position: fixed;
-    background-color: #12002a;
-    opacity: 0.9;
+    background-color: rgba(18,0,42,0.6);
     border-top: 1px solid #3a0084;
     border-right: 1px solid #3a0084;
     border-bottom: 1px solid #3a0084;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     margin-top: 50px;
+	box-shadow: 1px 1px 3px black;
+	-moz-box-shadow: 1px 1px 3px black;
+	-webkit-box-shadow: 1px 1px 3px black;
 }
 
 #sidenav ul {
@@ -92,38 +98,91 @@
     font-size: 14px;
     letter-spacing: 1px;
     text-align: left;
-    -webkit-user-select: none; /* Chrome/Safari */        
+    -webkit-user-select: none; /* Chrome/Safari */
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* IE10+ */
+
 }
 
 #sidenav ul li:hover {
-    background-color: #6400E8;
-    
+    background-color: rgba(100,0,232,0.6);
+    transition: background-color 0.2s;
+    -webkit-transition: background-color 0.2s;
+	text-indent: 5px;
+	transition: text-indent 0.2s;
+	-webkit-transition: text-indent 0.2s;
 }
 
-#sidenav a:active {
+#sidenav ul li:active {
     background-color: #330073;
 }
 #sidenav ul li:last-child {
     border-bottom: 1px solid #6400e8;
 }
 .ask_sub_button {
-    border: 1px solid #fff;
+    /*border: 2px solid #1f0041;*/
+    border-left: 1px solid rgba(255,255,255,0.6);
+    border-top: 1px solid rgba(255,255,255,0.6);
+    border-right: 2px solid rgba(0,0,0,0.9);
+    border-bottom: 2px solid rgba(0,0,0,0.9);
     border-radius: 5px;
     display: inline-block;
     margin-top: 1.6%;
+    width: 75px;
+    height: 60px;
+    
+    /* bottom and right shadow */
+    /*box-shadow: 2px 2px 8px black;
+    -moz-box-shadow: 2px 2px 8px black;
+    -webkit-box-shadow: 2px 2px 8px black;
+    /* top and left shadow */
+    /*box-shadow: -2px -2px 8px white;
+    -moz-box-shadow: -2px -2px 8px white;
+    -webkit-box-shadow: -2px -2px 8px white;*/
+    padding: 1px;
+}
+
+.ask_sub_button:active {
+    /*border-left: 3px solid rgba(0,0,0,1);
+    border-top: 3px solid rgba(0,0,0,1);*/
+    border-left: 2px solid rgba(0,0,0,0.8);
+    border-top: 2px solid rgba(0,0,0,0.8);
+    border-right: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.ask_sub_button:hover {
+    /*border: 1px solid #fff;*/
+    opacity: 0.9;
+    box-shadow: 0px 0px 5px white;
+    -moz-box-shadow: 0px 0px 5px white;
+    -webkit-box-shadow: 0px 0px 5px white;
+    transition: box-shadow 0.25s;
+    /*transition: box-shadow, -mox-box-shadow, -webkit-box-shadow 0.1s;
+    -webkit-transition: box-shadow, -mox-box-shadow, -webkit-box-shadow 0.1s;
+    */
+
 }
 
 #ask_button {
     float: left;
     margin-left: 33px;
+    background-image: url(http://media.tumblr.com/09640c0c4238ee6423304b8ceb20ce73/tumblr_inline_mqzc9isvMH1qmdj69.png);
 }
 
 #submit_button {
     float: right;
     margin-right: 33px;
+    background-image: url(http://media.tumblr.com/d3ebe0b62358bcc48e5127ef2791392b/tumblr_inline_mqztjzSblb1qmdj69.png);
 }
+
+/*#ask_button:hover {
+    background-image: url(http://media.tumblr.com/070ed761b411cfc35d0c97e7c3adaeec/tumblr_inline_mqz6cvxtGg1qmdj69.png);
+}
+
+#submit_button:hover {
+    background-image: url(http://media.tumblr.com/f78f7b68d3668c086905246655212d55/tumblr_inline_mrv3cwwu631qmdj69.png);
+}*/
 
 #wrapper #content .post .copy  p {
     font-size: 13px;
@@ -154,9 +213,7 @@
     border-radius: 6px;
 }
 
-.ask_sub_button:hover {
-    opacity: 0.5;
-}
+
 
 #content_header_title {
     margin: 30px 0;
@@ -183,10 +240,14 @@
     color: white;
 }
 
-#sidenav .page-scroll-nav li{
+#sidenav .page-scroll-nav li {
     float: left;
     display: inline;
     width: 78px;
     text-align: center;
     border-left: 1px solid white;
+}
+
+.post .copy a:hover {
+    color: purple;
 }
