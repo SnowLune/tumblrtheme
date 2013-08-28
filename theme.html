@@ -842,6 +842,39 @@
         </style>
     <![endif]-->
     <style type="text/css">{CustomCSS}</style>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            /*$(document).click(function() {
+                alert("ha");
+            }); */
+            //var down_post = ".post";
+            //var up_post = down_post;
+            var post = ".post"
+            var on_post = false;
+            $(document).on('keydown',function(e) {
+                if (e.which == 74) {
+                    $(window).scrollTop($(post).position().top + -10);
+                    on_post = true;
+                }                
+                if (on_post == true) {
+                    post = $(post).next($(".post"));
+                }                
+                if (e.which == 75) {
+                    post = $(post).prev($(".post"));
+                    //up_post = down_post.slice(0, -" ~ .post".length);
+                    $(window).scrollTop($(post).position().top + -10);
+                    //down_post = up_post;
+                }
+            /*    if ($(window).scrollTop() + 10 == $(post).position().top) {
+                    $(window).scroll(function() {
+                    on_post = false;
+                    
+                    });
+                } */
+            });
+        });
+    </script>
 </head>
 <body>
     <div id="theheader">
@@ -849,9 +882,9 @@
             <div id="content_header">                 
             </div>
             <div id="ask_submit_header">            
-                <div><a href="http://www.shinjithekid.tumblr.com/ask"><img id="ask_button" class="ask_sub_button" src="http://media.tumblr.com/09640c0c4238ee6423304b8ceb20ce73/tumblr_inline_mqzc9isvMH1qmdj69.png" /></a>
+                <div><a href="http://www.shinjithekid.tumblr.com/ask"><div id="ask_button" class="ask_sub_button"></div></a>
                 </div>
-                <div><a href="http://www.shinjithekid.tumblr.com/submit"><img id="submit_button" class="ask_sub_button" src="http://media.tumblr.com/d3ebe0b62358bcc48e5127ef2791392b/tumblr_inline_mqztjzSblb1qmdj69.png" /></a>
+                <div><a href="http://www.shinjithekid.tumblr.com/submit"><div id="submit_button" class="ask_sub_button"></div></a>
                 </div>
             </div>
         </div>
@@ -863,15 +896,15 @@
             <li>Lists are fun</li>
             <li>Menu Links and stuff!</li>
         </ul> -->
-        <script type="text/javascript">
-            $('li').on("click",function(){
+      <!--  <script type="text/javascript">
+            $(#go-up).on("click",function(){
             $(window).scrollTop(0);
             });
         </script>
         <ul class="page-scroll-nav">
             <li id="go-down">DOWN</li>
             <li id="go-top">UP</li>
-        </ul>
+        </ul> -->
         {block:HasPages}
             <div id="pages">
                         {block:Pages}<ul><a href="{URL}" class="page"><li>{Label}</li></a></ul>{/block:Pages}
