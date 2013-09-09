@@ -844,37 +844,12 @@
     <style type="text/css">{CustomCSS}</style>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script type="text/javascript">
-        $(document).ready(function() {
-            /*$(document).click(function() {
-                alert("ha");
-            }); */
-            //var down_post = ".post";
-            //var up_post = down_post;
-            var post = ".post"
-            var on_post = false;
-            $(document).on('keydown',function(e) {
-                if (e.which == 74) {
-                    $(window).scrollTop($(post).position().top + -10);
-                    on_post = true;
-                }                
-                if (on_post == true) {
-                    post = $(post).next($(".post"));
-                }                
-                if (e.which == 75) {
-                    post = $(post).prev($(".post"));
-                    //up_post = down_post.slice(0, -" ~ .post".length);
-                    $(window).scrollTop($(post).position().top + -10);
-                    //down_post = up_post;
-                }
-            /*    if ($(window).scrollTop() + 10 == $(post).position().top) {
-                    $(window).scroll(function() {
-                    on_post = false;
-                    
-                    });
-                } */
-            });
-        });
+$(document).ready(function(){window.postNumber=0;var e=false;var t=$(".post").toArray();var n=-8;var r=100;$(document).on("keydown",function(i){window.keyCode=i.which;if(postNumber<t.length,postNumber>=0){if(i.which==74){if(postNumber<t.length-1){if(e==true&&$(window).scrollTop()+$(window).height()!=$(document).height()){postNumber=postNumber+1;$("html").animate({scrollTop:$(".post").eq(postNumber).position().top+n},r)}else{while($(".post").eq(postNumber).position().top<$(window).scrollTop()){postNumber++}$("html").animate({scrollTop:$(".post").eq(postNumber).position().top+n},r);e=true}}}else if(i.which==75){if(postNumber!=0){postNumber=postNumber-1;$("html").animate({scrollTop:$(".post").eq(postNumber).position().top+n},r);e=true}}if(postNumber<0){postNumber=0}if(postNumber>=t.length){postNumber=t.length-1}}})})
     </script>
+
+
+
+
 </head>
 <body>
     <div id="theheader">
